@@ -1,17 +1,3 @@
-"""
-Exercise 1 — Incident Triage Playbook (Phishing Alert)
-
-Simulates an XSOAR-style playbook that automates phishing alert triage.
-Steps:
-  1. Enrich sender email (threat intel lookup)
-  2. Classify severity (critical / high / medium)
-  3. Auto-close (medium) or escalate (high/critical) to analyst
-  4. Generate war room summary
-
-Senior branch: if attachment_hash is present, check hash reputation
-before classifying severity and adjust accordingly.
-"""
-
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Optional
