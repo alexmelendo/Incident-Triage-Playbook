@@ -1,17 +1,3 @@
-"""
-Exercise 1 — Incident Triage Playbook (Phishing Alert)
-
-Simulates an XSOAR-style playbook that automates phishing alert triage.
-Steps:
-  1. Enrich sender email (threat intel lookup)
-  2. Classify severity (critical / high / medium)
-  3. Auto-close (medium) or escalate (high/critical) to analyst
-  4. Generate war room summary
-
-Senior branch: if attachment_hash is present, check hash reputation
-before classifying severity and adjust accordingly.
-"""
-
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Optional
@@ -249,6 +235,7 @@ if __name__ == "__main__":
         ("billing@suspicious-domain.xyz", "Invoice #4821 Attached", "abc123def45678900000000000000000"),
     ]
     for sender, subj, hash_val in scenarios:
+        print(sender, subj, hash_val)
         result = run_playbook(sender, subj, hash_val)
         print(result.war_room_summary)
         print("=" * 70)
